@@ -23,12 +23,10 @@
         :key="subject.name"
         class="test-card-wrapper"
       >
-        <!-- Subject Card -->
         <div
           class="test-card"
           @click="toggleSubject(subject.name)"
         >
-          <!-- Vector Icon Render Container -->
           <span class="test-icon" v-html="subject.icon"></span>
 
           <div class="test-info">
@@ -248,7 +246,6 @@ export default {
   color: var(--gray-500);
 }
 
-/* PDF Modal */
 .pdf-modal {
   position: fixed;
   inset: 0;
