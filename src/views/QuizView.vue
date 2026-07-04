@@ -49,7 +49,6 @@
           </div>
           <p class="q-text">{{ currentQ.question }}</p>
 
-          <!-- MCQ options -->
           <div v-if="currentQ.type === 'mcq'" class="options">
             <button
               v-for="(text, key) in currentQ.options"

@@ -21,7 +21,7 @@ export default {
     stats: {
       subjects: 'មុខវិជ្ជា',
       subjectsValue: '១០',
-      yearsOfPastTests: 'ឆ្នាំនៃប្រលងចាស់',
+      yearsOfPastTests: 'ឆ្នាំនៃប្រឡងចាស់',
       yearsOfPastTestsValue: '១០+',
       alwaysAvailable: 'អាចប្រើប្រាស់បានគ្រប់ពេល',
       alwaysAvailableValue: '២៤/៧',
@@ -69,7 +69,7 @@ export default {
     },
   },
   calculator: {
-    title: 'ម៉ាស៊ីនគិតពិន្ទុប្រលង',
+    title: 'ម៉ាស៊ីនគិតពិន្ទុប្រឡង',
     subtitle: 'បញ្ចូលពិន្ទុរបស់អ្នកដើម្បីគណនាលទ្ធផល និងចំណាត់ថ្នាក់',
     science: 'វិទ្យាសាស្ត្រ',
     social: 'សង្គមវិទ្យា',

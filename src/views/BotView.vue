@@ -1,7 +1,6 @@
 <template>
   <div class="chat-page">
     <div class="chat-layout">
-      <!-- Chat Panel -->
       <div class="chat-panel">
         <div class="chat-messages" ref="messagesEl">
           <div v-if="chatHistory.length === 0" class="chat-empty">
@@ -56,7 +55,6 @@
         </div>
       </div>
 
-      <!-- Right Panel -->
       <aside class="right-panel">
         <div class="panel-card">
           <h3 class="panel-title">{{ $t('chat.recentQuestions') }}</h3>
@@ -205,7 +203,6 @@ export default {
     gap: 12px;
   }
 }
-/* Chat panel */
 .chat-panel {
   background: var(--white);
   border-radius: 18px;
@@ -233,7 +230,6 @@ export default {
   border-radius: 3px;
 }
 
-/* Empty state */
 .chat-empty {
   margin: auto;
   text-align: center;
@@ -282,7 +278,6 @@ export default {
   background: var(--amber-light);
 }
 
-/* Messages */
 .chat-entry {
   display: flex;
   flex-direction: column;
@@ -348,7 +343,6 @@ export default {
   margin-bottom: 8px;
 }
 
-/* Typing dots */
 .typing-dots {
   display: flex;
   gap: 4px;
@@ -387,7 +381,6 @@ export default {
   }
 }
 
-/* Input area */
 .chat-input-area {
   padding: 14px 18px 16px;
   border-top: 1px solid var(--gray-100);
@@ -462,7 +455,6 @@ textarea::placeholder {
   text-align: center;
 }
 
-/* Right panel */
 .right-panel {
   display: flex;
   flex-direction: column;
