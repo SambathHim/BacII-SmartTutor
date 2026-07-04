@@ -29,7 +29,6 @@
         <div class="subject-grid">
           <div class="subject-card" v-for="subject in mainSubjects" :key="subject.key">
             <div class="subject-card-top">
-              <!-- Upgraded to render vector SVG configuration mapping directly with v-html -->
               <span class="subject-icon" v-html="subject.icon"></span>
               <p class="subject-name">{{ $t('calculator.subjects.' + subject.key) }}</p>
             </div>
@@ -61,7 +60,6 @@
         <div class="subject-grid">
           <div class="subject-card" v-for="subject in selectionSubjects" :key="subject.key">
             <div class="subject-card-top">
-              <!-- Upgraded to render vector SVG configuration mapping directly with v-html -->
               <span class="subject-icon" v-html="subject.icon"></span>
               <p class="subject-name">{{ $t('calculator.subjects.' + subject.key) }}</p>
             </div>
@@ -95,7 +93,6 @@
           <p class="result-title">
             {{ $t('calculator.resultTable') }}: <span>{{ selectedClass === 'Science' ? $t('calculator.science') : $t('calculator.social') }} {{ $t('calculator.class') }}</span>
           </p>
-          <!-- Upgraded trash button emoji into clean vector icon format structure -->
           <button class="delete-btn" @click="resetAll">
             <svg class="delete-vector" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>
             {{ $t('calculator.delete') }}
@@ -296,7 +293,6 @@ export default {
   gap: 20px;
 }
 
-/* Group */
 .subject-group {
   background: var(--white);
   border: 1px solid var(--gray-100);
@@ -427,7 +423,6 @@ export default {
   opacity: 0.85;
 }
 
-/* Result section */
 .result-section {
   background: var(--white);
   border: 1px solid var(--gray-100);
