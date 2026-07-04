@@ -3,21 +3,8 @@ import os
 
 DB_PATH = os.path.join(os.path.dirname(__file__), "questions.db")
 
-# NOTE:
-# - "subject" values are kept in English on purpose — your Flask API
-#   (/api/subjects, /api/quiz?subject=...) filters by this exact string,
-#   and your frontend likely sends "Mathematics", "Physics", etc.
-#   Changing these would break subject filtering unless you also update
-#   the frontend subject keys to match.
-# - Math/chemistry/physics notation (numbers, formulas, symbols like
-#   sin, cos, log, Fe³⁺, H₂O, etc.) is left as-is since it's universal
-#   notation, not English words.
-# - MCQ "answer" stays as the letter (A/B/C/D) since it's used to check
-#   correctness against option_a/b/c/d, not displayed as language text.
-# - TF "answer" is translated: True -> ពិត, False -> មិនពិត
 
 questions = [
-    # ── គណិតវិទ្យា (MATHEMATICS) ─────────────────────────────────────
     ("Mathematics", "mcq", "ប្រសិនបើ z₁ = 3 + 3i√3 និង z₂ = √3 + i តើ z₁ × z₂ស្មើនឹងអ្វី?", "-12i", "12i", "12", "6 + 6i", "B", None),
     ("Mathematics", "mcq", "ប្រសិនបើ z₁ = 3 + 3i√3 និង z₂ = √3 + i តើ z₁ / z₂ស្មើនឹងអ្វី?", "(3√3 - 3i)/2", "(3√3 + 3i)/2", "3√3 + 3i", "6 + 6i", "B", None),
     ("Mathematics", "tf",  "ម៉ូឌុលនៃ z = 3 + 3i√3 គឺស្មើ 9។", None, None, None, None, "មិនពិត", None),
@@ -59,7 +46,6 @@ questions = [
     ("Mathematics", "mcq", "ដោយប្រើប្រវែងជ្រុងពី N, P, Q (ជាមួយមុំកែងនៅ Q) តើផ្ទៃក្រឡានៃត្រីកោណ NPQ ជាអ្វី?", "√38", "2√21", "12", "6√2", "B", None),
     ("Mathematics", "mcq", "សម្រាប់ប៉ារ៉ាបូល (y + 2)² = -8(x - 2) តើកូអរដោនេនៃចំណុចប្រសព្វ (focus) របស់វាជាអ្វី?", "(2, -2)", "(4, -2)", "(-2, -2)", "(0, -2)", "D", None),
 
-    # ── រូបវិទ្យា (PHYSICS) ──────────────────────────────────────────
     ("Physics", "mcq", "តើរលកជាអ្វី?", "លំហូរនៃរូបធាតុពីចំណុចមួយទៅចំណុចមួយទៀត", "ការរំខានដែលបញ្ជូនថាមពលដោយមិនផ្ទេររូបធាតុ", "ប្រភេទផ្នែកតូចមួយ", "កម្លាំងថេរដែលមិនផ្លាស់ប្តូរ", "B", None),
     ("Physics", "mcq", "តើរលកឈរ (standing wave) ជាអ្វី?", "រលកដែលធ្វើចលនាតែក្នុងទិសមួយ", "រលកដែលមានអំព្លីទុតសូន្យគ្រប់ទីកន្លែង", "រលកបង្កើតឡើងពីរលកពីរដែលមានប្រេកង់ និងអំព្លីទុតស្មើគ្នា ធ្វើដំណើរផ្ទុយទិសគ្នា", "រលកដែលធ្វើដំណើរលឿនជាងពន្លឺ", "C", None),
     ("Physics", "tf",  "រលកឈរមានចំណុចថេរហៅថាថ្នាំង (nodes) ដែលអំព្លីទុតជាសូន្យ។", None, None, None, None, "ពិត", None),
@@ -91,7 +77,6 @@ questions = [
     ("Physics", "mcq", "តើមានប៉ុន្មានម៉ូលនៅក្នុងឧស្ម័នអាហ្សូត 28 g ដោយផ្តល់ម៉ូលម៉ាសរបស់វា 28 g/mol?", "2 mol", "1 mol", "0.5 mol", "28 mol", "B", None),
     ("Physics", "tf",  "នៅសីតុណ្ហភាព និងសម្ពាធស្តង់ដារ (STP) ឧស្ម័នមូលដ្ឋានមួយម៉ូលមានមាឌប្រហែល 22.4 L។", None, None, None, None, "ពិត", None),
 
-    # ── គីមីវិទ្យា (CHEMISTRY) ───────────────────────────────────────
     ("Chemistry", "mcq", "តើនិមិត្តសញ្ញាគីមីនៃមាសជាអ្វី?", "Ag", "Au", "Gd", "Go", "B", None),
     ("Chemistry", "tf",  "ទឹកគឺជាសមាសធាតុមួយផ្សំឡើងពីអ៊ីដ្រូសែន និងអុកស៊ីសែន។", None, None, None, None, "ពិត", None),
     ("Chemistry", "mcq", "តើលេខអាតូមនៃកាបូនជាអ្វី?", "4", "6", "8", "12", "B", None),
@@ -122,7 +107,6 @@ questions = [
     ("Chemistry", "mcq", "ក្នុង 2H₂O₂ → 2H₂O + O₂ ប្រសិនបើ H₂O₂ 0.02 mol បំបែកទាំងស្រុង តើ O₂ បង្កើតបានប៉ុន្មានម៉ូល?", "0.02 mol", "0.04 mol", "0.01 mol", "0.005 mol", "C", None),
     ("Chemistry", "mcq", "សូលុយស្យុងអាស៊ីតមួយមាន [H⁺] = 1×10⁻⁴ M។ តើ pH របស់វាជាអ្វី?", "10", "-4", "0.0001", "4", "D", None),
 
-    # ── ជីវវិទ្យា (BIOLOGY) ──────────────────────────────────────────
     ("Biology", "mcq", "តើស្រទាប់សំខាន់ពីរនៃស្បែកជាអ្វី?", "Cortex និង medulla", "Cytoplasm និង nucleus", "អេពីដឺម៉ីស និងឌែម៉ីស", "Xylem និង phloem", "C", None),
     ("Biology", "tf",  "អេពីដឺម៉ីសគឺជាស្រទាប់ខាងក្រៅបំផុតនៃស្បែក។", None, None, None, None, "ពិត", None),
     ("Biology", "mcq", "តើផ្សិត (fungus) ជាអ្វី?", "ប្រភេទបាក់តេរីមួយ", "រុក្ខជាតិដែលមានរស្មីសំយោគ", "មេរោគមួយ", "សារពាង្គកាយ eukaryotic ដែលស្រូបយកសារធាតុចិញ្ចឹមពីរូបធាតុសរីរាង្គ", "D", None),
@@ -154,7 +138,6 @@ questions = [
     ("Biology", "tf",  "DNA ជាទូទៅមានពីរខ្សែ ខណៈដែល RNA ជាទូទៅមានតែមួយខ្សែ។", None, None, None, None, "ពិត", None),
     ("Biology", "mcq", "តើដំណើរការចម្លង DNA ទៅជា mRNA ត្រូវបានហៅថាអ្វី?", "ការបកប្រែ", "ការចម្លងឡើងវិញ", "ការផ្លាស់ប្តូរ", "ការចម្លងចេញ (transcription)", "D", None),
 
-    # ── ប្រវត្តិវិទ្យា (HISTORY) ─────────────────────────────────────
     ("History", "mcq", "តើកម្ពុជាបានក្លាយជាអាណានិគមរបស់បារាំងនៅឆ្នាំណា?", "1853", "1863", "1887", "1907", "B", None),
     ("History", "mcq", "តើព្រះមហាក្សត្រខ្មែរណាបានចុះហត្ថលេខាលើសន្ធិសញ្ញាបង្កើតអាណានិគមបារាំង?", "ព្រះស៊ីសុវត្ថិ", "ព្រះមុនីវង្ស", "ព្រះនរោត្តម", "ព្រះសីហនុ", "C", None),
     ("History", "tf",  "កម្ពុជាធ្លាប់ជាផ្នែកមួយនៃឥណ្ឌូចិនបារាំង រួមជាមួយវៀតណាម និងឡាវ។", None, None, None, None, "ពិត", None),
@@ -186,7 +169,6 @@ questions = [
     ("History", "mcq", "តើបេសកកម្មអង្គការសហប្រជាជាតិណាបានរៀបចំការបោះឆ្នោតកម្ពុជាឆ្នាំ 1993?", "UNHCR", "UNTAC", "UNESCO", "UNICEF", "B", None),
     ("History", "tf",  "ព្រះនរោត្តម សីហនុបានក្លាយជាព្រះមហាក្សត្រកម្ពុជាម្តងទៀត បន្ទាប់ពីរដ្ឋធម្មនុញ្ញឆ្នាំ 1993 បានស្ដារព្រះរាជានិយម។", None, None, None, None, "ពិត", None),
 
-    # ── ភាសាអង់គ្លេស (ENGLISH) ────────────────────────────────────────
     ("English", "mcq", "តើ 'go' ក្នុងអតីតកាលសរសេរយ៉ាងដូចម្តេច?", "Goed", "Gone", "Went", "Goes", "C", None),
     ("English", "tf",  "'Quickly' ជា adverb មួយ។", None, None, None, None, "ពិត", None),
     ("English", "mcq", "តើប្រយោគមួយណាត្រឹមត្រូវតាមវេយ្យាករណ៍?", "She don't like it.", "She doesn't likes it.", "She doesn't like it.", "She not like it.", "C", None),
@@ -218,7 +200,6 @@ questions = [
     ("English", "mcq", "ជ្រើសរើសប្រយោគដែលដាក់សញ្ញាវណ្ណយុត្តិត្រឹមត្រូវ។", "I cant believe it she said.", "\"I cant believe it\" she said.", "I can't believe it she said.", "\"I can't believe it,\" she said.", "D", None),
     ("English", "mcq", "តើពាក្យមួយណាបំពេញប្រយោគត្រឹមត្រូវ: 'Neither the teacher nor the students ___ ready.'", "is", "are", "were", "be", "B", None),
 
-    # ── ផែនដីវិទ្យា (EARTH SCIENCE) ──────────────────────────────────
     ("EarthScience", "mcq", "តើស្រទាប់សំខាន់ទាំងបួននៃបរិយាកាសផែនដីតាមលំដាប់ពីទាបទៅខ្ពស់ជាអ្វី?", "Stratosphere, Troposphere, Mesosphere, Thermosphere", "Troposphere, Stratosphere, Mesosphere, Thermosphere", "Troposphere, Mesosphere, Stratosphere, Thermosphere", "Thermosphere, Mesosphere, Stratosphere, Troposphere", "B", None),
     ("EarthScience", "tf",  "Troposphere ជាស្រទាប់បរិយាកាសដែលនៅជិតផ្ទៃផែនដីបំផុត ជាកន្លែងកើតធាតុអាកាស។", None, None, None, None, "ពិត", None),
     ("EarthScience", "mcq", "តើមូលហេតុចម្បងនៃប្រតិកម្មផ្ទះកញ្ចក់ (greenhouse effect) ជាអ្វី?", "រន្ធនៅស្រទាប់អូហ្សូនដែលអនុញ្ញាតឲ្យកាំរស្មី UV ចូល", "កាំរស្មីព្រះអាទិត្យកើនឡើងមកកាន់ផែនដី", "ការប្រមូលផ្តុំឧស្ម័នដូចជា CO₂ និងមេតាន ដែលចាប់កម្តៅ", "ការហួយចេញនៃមហាសមុទ្រកើនឡើងសំណើម", "C", None),
