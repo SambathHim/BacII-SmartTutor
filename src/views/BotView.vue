@@ -126,7 +126,7 @@ export default {
       this.scrollDown()
 
       try {
-        const res = await fetch('http://127.0.0.1:5000/ask', {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/ask`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -157,12 +157,14 @@ export default {
 
     async resetChat() {
       try {
-        await fetch('http://127.0.0.1:5000/reset', {
+        await fetch(`${import.meta.env.VITE_API_URL}/reset`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ session_id: this.sessionId }),
         })
-      } catch {
+      } catch (err) {
+        console.warn('Reset request failed:', err)
+      } finally {
         this.chatHistory = []
         this.sessionId = uuidv4()
       }
