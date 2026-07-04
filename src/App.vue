@@ -259,7 +259,7 @@ export default {
 }
 .topbar-user-icon {
   margin-right: 6px;
-  color: var(--gray-700);
+  color: rgb(0, 0, 86);
 }
 
 .content {
