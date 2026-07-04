@@ -124,6 +124,7 @@ export default {
   flex-direction: column;
   gap: 20px;
   max-width: 700px;
+  margin-left: 250px;
 }
 
 .tabs {
