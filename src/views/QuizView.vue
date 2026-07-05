@@ -848,24 +848,44 @@ export default {
 
 .results-actions {
   display: flex;
-  gap: 12px;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
 }
 
-.btn-retry:hover {
-  opacity: 0.85;
-}
 .btn-retry,
 .btn-home {
-  display: flex;
+  display: flex !important;
   align-items: center;
   justify-content: center;
   gap: 6px;
+  width: 100%;
   text-align: center;
-  white-space: normal;
-  line-height: 1.3;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 13px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  box-sizing: border-box;
 }
+.btn-retry {
+  background: var(--navy, #0f2044) !important;
+  color: var(--white, #ffffff) !important;
+  border: none !important;
+}
+
+.btn-retry:hover {
+  opacity: 0.88;
+}
+.btn-home {
+  background: var(--white, #ffffff) !important;
+  color: var(--navy, #0f2044) !important;
+  border: 1.5px solid var(--gray-300, #d1d5db) !important;
+}
+
 .btn-home:hover {
-  background: var(--gray-100);
+  background: var(--gray-100, #f3f4f6) !important;
 }
 
 .loading-state {
