@@ -123,8 +123,11 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  max-width: 700px;
-  margin-left: 250px;
+  max-width: 760px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .tabs {
@@ -142,8 +145,10 @@ export default {
   color: var(--gray-500);
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 7px;
   transition: all 0.15s;
+  cursor: pointer;
 }
 
 .tab:hover {
@@ -155,6 +160,7 @@ export default {
   border-color: var(--navy);
   color: var(--white);
 }
+
 .tab-badge {
   background: var(--amber);
   color: var(--navy);
@@ -162,6 +168,7 @@ export default {
   font-weight: 700;
   padding: 2px 6px;
   border-radius: 20px;
+  white-space: nowrap;
 }
 
 .tab--active .tab-badge {
@@ -170,121 +177,46 @@ export default {
 }
 
 .tests-list {
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
 }
 
-@media (max-width: 640px) {
-  .tests-page {
-    padding: 0 12px;
-    gap: 14px;
-  }
-
-  .tabs {
-    gap: 6px;
-  }
-
-  .tab {
-    padding: 8px 14px;
-    font-size: 12px;
-    flex: 1;
-    justify-content: center;
-  }
-
-  .tab-badge {
-    font-size: 9px;
-  }
-
-  .tests-list {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  .test-card {
-    padding: 14px 16px;
-    gap: 10px;
-  }
-
-  .test-icon svg {
-    width: 20px;
-    height: 20px;
-  }
-
-  .test-name {
-    font-size: 13px;
-  }
-
-  .test-years {
-    font-size: 10px;
-  }
-
-  .file-row {
-    padding: 0 16px 14px;
-    padding-top: 12px;
-  }
-
-  .file-btn {
-    font-size: 12px;
-    padding: 9px 14px;
-  }
-
-  .pdf-modal {
-    padding: 12px;
-  }
-
-  .pdf-modal-content {
-    height: 85vh;
-    border-radius: 8px;
-  }
-
-  .pdf-modal-header {
-    padding: 12px 14px;
-    font-size: 13px;
-  }
-}
-
-@media (max-width: 400px) {
-  .tabs {
-    flex-direction: column;
-  }
-
-  .tab {
-    width: 100%;
-  }
-
-  .test-card {
-    padding: 12px 14px;
-  }
-
-  .test-name {
-    font-size: 12.5px;
-  }
+.test-card-wrapper {
+  min-width: 0;
 }
 
 .test-card {
   background: var(--white);
   border: 1px solid var(--gray-100);
   border-radius: var(--radius);
-  padding: 16px 22px;
+  padding: 16px 20px;
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   transition: border-color 0.15s;
+  cursor: pointer;
+  min-width: 0;
 }
 
 .test-card:hover {
   border-color: var(--gray-300);
-  cursor: pointer;
 }
 
 .test-icon {
   font-size: 26px;
   flex-shrink: 0;
+  display: flex;
+}
+
+.test-icon svg {
+  width: 24px;
+  height: 24px;
 }
 
 .test-info {
   flex: 1;
+  min-width: 0;
 }
 
 .test-name {
@@ -292,7 +224,11 @@ export default {
   font-weight: 700;
   color: var(--navy);
   margin-bottom: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
+
 .test-years {
   font-size: 11px;
   color: var(--gray-500);
@@ -305,7 +241,7 @@ export default {
 }
 
 .file-row {
-  padding: 0 22px 18px;
+  padding: 0 20px 16px;
   border-top: 1px solid var(--gray-100);
   padding-top: 14px;
 }
@@ -382,5 +318,127 @@ export default {
   flex: 1;
   border: none;
   width: 100%;
+}
+
+/* ============ 1024px — tablets ============ */
+@media (max-width: 1024px) {
+  .tests-page {
+    max-width: 100%;
+    padding: 0 18px;
+  }
+}
+
+/* ============ 768px — small tablets / large phones ============ */
+@media (max-width: 768px) {
+  .tests-page {
+    gap: 16px;
+    padding: 0 16px;
+  }
+
+  .tab {
+    padding: 8px 14px;
+    font-size: 12.5px;
+  }
+
+  .test-card {
+    padding: 14px 16px;
+  }
+
+  .test-name {
+    font-size: 13.5px;
+  }
+}
+
+/* ============ 640px — phones ============ */
+@media (max-width: 640px) {
+  .tests-page {
+    padding: 0 14px;
+    gap: 14px;
+  }
+
+  .tabs {
+    gap: 6px;
+  }
+
+  .tab {
+    padding: 8px 12px;
+    font-size: 12px;
+    flex: 1;
+  }
+
+  .tab-badge {
+    font-size: 9px;
+  }
+
+  .tests-list {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .test-card {
+    padding: 13px 15px;
+    gap: 10px;
+  }
+
+  .test-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .test-name {
+    font-size: 13px;
+  }
+
+  .test-years {
+    font-size: 10px;
+  }
+
+  .file-row {
+    padding: 0 15px 13px;
+    padding-top: 11px;
+  }
+
+  .file-btn {
+    font-size: 12px;
+    padding: 9px 13px;
+  }
+
+  .pdf-modal {
+    padding: 10px;
+  }
+
+  .pdf-modal-content {
+    height: 88vh;
+    border-radius: 8px;
+  }
+
+  .pdf-modal-header {
+    padding: 11px 14px;
+    font-size: 13px;
+  }
+}
+
+/* ============ 400px — very small phones ============ */
+@media (max-width: 400px) {
+  .tabs {
+    flex-direction: column;
+  }
+
+  .tab {
+    width: 100%;
+  }
+
+  .test-card {
+    padding: 12px 13px;
+  }
+
+  .test-name {
+    font-size: 12.5px;
+  }
+
+  .expand-btn svg {
+    width: 14px;
+    height: 14px;
+  }
 }
 </style>
