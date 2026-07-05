@@ -87,7 +87,7 @@
             </div>
         </div>
         
-        <div class="flex gap-5">
+        <div class="flex gap-3">
           <button v-if="$i18n.locale == 'kh'" 
                 class="topbar-change-lang-en" @click="changeLanguage('en')" :class="{ active: $i18n.locale === 'en' }">
                 ENG
