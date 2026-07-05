@@ -102,7 +102,11 @@
         </div>
       </header>
       <main class="content">
-        <router-view />
+        <router-view v-slot="{ Component }">
+          <keep-alive include="BotView">
+            <component :is="Component" />
+          </keep-alive>
+        </router-view>
       </main>
     </div>
   </div>
@@ -113,6 +117,7 @@ import { useRoute, useRouter } from 'vue-router'
 
 export default {
   name: 'App',
+  name: 'BotView',
 
   data() {
     return {
