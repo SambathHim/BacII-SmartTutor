@@ -204,7 +204,6 @@ export default {
   align-items: center;
   gap: 10px;
   min-width: 0;
-  overflow: hidden;
 }
 .tc-label-row {
     display: flex;
@@ -370,6 +369,7 @@ export default {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-wrap: wrap;
 }
 
 .cursor-pointer {
