@@ -224,27 +224,40 @@ export default {
 }
 
 .topbar {
-  flex-wrap: nowrap;
-  overflow-x: auto; 
-  -webkit-overflow-scrolling: touch;
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-100);
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  flex-wrap: wrap;
 }
 
 .topbar-left {
-  flex-wrap: nowrap;
-  flex-shrink: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
   min-width: 0;
 }
 
 .topbar-countdown {
-  flex-wrap: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   min-width: 0;
+  flex-wrap: wrap;
 }
 
 .tc-label-row {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 5px;
+  gap: 3px;
   flex-shrink: 0;
 }
 
@@ -270,10 +283,10 @@ export default {
 }
 
 .tc-label {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--gray-700);
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 90px;
 }
 
 .tc-num {
