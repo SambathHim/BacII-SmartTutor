@@ -220,17 +220,20 @@ export default {
     height: 18px;
   }
   .topbar-countdown {
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
+    gap: 4px;
   }
 
-  .tc-label {
-    margin-bottom: 4px;
+  .tc-label,
+  .tc-num,
+  .tc-unit {
+    font-size: 13px;
   }
 
   .tc-chips {
     flex-wrap: wrap;
-    font-size: 12px;
   }
 }
 
