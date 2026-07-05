@@ -850,28 +850,19 @@ export default {
   display: flex;
   gap: 12px;
 }
-.btn-retry {
-  background: var(--navy);
-  color: var(--white);
-  border: none;
-  border-radius: 9px;
-  padding: 12px 24px;
-  font-size: 14px;
-  font-weight: 700;
-  transition: opacity 0.15s;
-}
+
 .btn-retry:hover {
   opacity: 0.85;
 }
+.btn-retry,
 .btn-home {
-  background: var(--white);
-  color: var(--navy);
-  border: 1.5px solid var(--gray-300);
-  border-radius: 9px;
-  padding: 12px 24px;
-  font-size: 14px;
-  font-weight: 600;
-  transition: background 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+  white-space: normal;
+  line-height: 1.3;
 }
 .btn-home:hover {
   background: var(--gray-100);
@@ -891,5 +882,126 @@ export default {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+/* ============ Results screen responsiveness ============ */
+@media (max-width: 900px) {
+  .results-top {
+    grid-template-columns: 1fr;
+  }
+
+  .results-left {
+    padding: 20px;
+  }
+
+  .review-panel {
+    max-height: 420px;
+  }
+}
+
+@media (max-width: 640px) {
+  .results-screen {
+    gap: 18px;
+  }
+
+  .results-top {
+    gap: 14px;
+  }
+
+  .score-badge {
+    width: 68px;
+    height: 68px;
+  }
+
+  .score-num {
+    font-size: 26px;
+    margin-top: 10px;
+  }
+
+  .score-den {
+    font-size: 13px;
+  }
+
+  .score-label {
+    font-size: 14px;
+  }
+
+  .pie-svg {
+    width: 100px;
+    height: 100px;
+  }
+
+  .review-panel {
+    padding: 16px;
+    max-height: 380px;
+  }
+
+  .review-q-text {
+    font-size: 12.5px;
+  }
+
+  .results-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn-retry,
+  .btn-home {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .results-left {
+    padding: 16px;
+  }
+
+  .score-badge {
+    width: 60px;
+    height: 60px;
+  }
+
+  .score-num {
+    font-size: 22px;
+    margin-top: 8px;
+  }
+
+  .pie-svg {
+    width: 90px;
+    height: 90px;
+  }
+
+  .review-title {
+    font-size: 14px;
+  }
+
+  .review-item {
+    padding: 10px 12px;
+  }
+
+  .review-q-header {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .review-num,
+  .review-verdict {
+    font-size: 10px;
+  }
+
+  .review-q-text {
+    font-size: 12px;
+  }
+
+  .review-yours {
+    font-size: 11px;
+  }
+
+  .btn-retry,
+  .btn-home {
+    font-size: 13px;
+    padding: 11px 20px;
+  }
 }
 </style>
