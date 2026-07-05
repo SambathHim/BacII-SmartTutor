@@ -199,63 +199,82 @@ export default {
 </script>
 
 <style>
+:root {
+  --sidebar-w: 260px;
+}
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-wrap {
+  margin-left: var(--sidebar-w);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: calc(100% - var(--sidebar-w));
+}
+
+.content {
+  padding: 28px;
+  flex: 1;
+  min-width: 0;
+}
+
+.topbar {
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-100);
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  flex-wrap: wrap;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
 .topbar-countdown {
   display: flex;
   align-items: center;
   gap: 10px;
   min-width: 0;
+  flex-wrap: wrap;
 }
+
 .tc-label-row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 3px;
-  }
-@media (max-width: 1024px) {
-  .topbar-countdown {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 6px;
-  }
-  .tc-chips {
-    flex-wrap: wrap;
-  }
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
 }
-@media (max-width: 768px) {
-  .topbar-countdown-icon {
-    width: 18px;
-    height: 18px;
-  }
-  .topbar-countdown {
-    gap: 6px;
-  }
-  .tc-label,
-  .tc-num,
-  .tc-unit {
-    font-size: 13px;
-  }
+
+.tc-chips {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
 }
-@media (max-width: 480px) {
-  .topbar-countdown-icon {
-    width: 18px;
-    height: 18px;
-  }
-  .topbar-countdown {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 6px;
-  }
-  .tc-label,
-  .tc-num,
-  .tc-unit {
-    font-size: 11px;
-  }
-  .tc-chips {
-    flex-wrap: wrap;
-    gap: 4px;
-  }
+
+.tc-chip {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  border-radius: 6px;
+  padding: 4px 8px;
+  background: var(--gray-50, #f4f6fb);
 }
 
 .tc-icon {
@@ -268,21 +287,6 @@ export default {
   font-weight: 700;
   color: var(--gray-700);
   white-space: nowrap;
-}
-
-.tc-chips {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  flex-shrink: 0;
-}
-
-.tc-chip {
-  display: flex;
-  align-items: baseline;
-  gap: 2px;
-  border-radius: 6px;
-  padding: 4px 8px;
 }
 
 .tc-num {
@@ -306,6 +310,7 @@ export default {
 
 .topbar-user {
   display: flex;
+  align-items: center;
   background: var(--gray-100);
   padding: 7px 14px;
   border-radius: 20px;
@@ -315,65 +320,60 @@ export default {
   white-space: nowrap;
   flex-shrink: 0;
 }
+
 .topbar-user-icon {
   margin-right: 6px;
   color: rgb(0, 0, 86);
 }
 
-.content {
-  padding: 28px;
-  flex: 1;
-  min-width: 0;
+.topbar-change-lang-en,
+.topbar-change-lang-kh {
+  padding: 7px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-:root {
-  --sidebar-w: 260px; 
+.topbar-change-lang-en {
+  background: rgb(0, 0, 122);
+}
+.topbar-change-lang-kh {
+  background: rgb(123, 0, 0);
+}
+.topbar-change-lang-en:hover {
+  background: rgb(0, 0, 86);
 }
 
-.layout {
-  display: flex;
-  min-height: 100vh;
-}
-
-.mobile-toggle {
+.mobile-toggle,
+.mobile-close {
   display: none;
   background: none;
   border: none;
-  font-size: 24px;
   cursor: pointer;
+}
+
+.mobile-toggle {
+  font-size: 24px;
   color: var(--gray-700);
   padding: 4px 8px;
 }
 
 .mobile-close {
-  display: none;
-  background: none;
-  border: none;
   color: #8fa3c8;
   font-size: 20px;
   margin-left: auto;
-  cursor: pointer;
 }
 
 .sidebar-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: rgba(0, 0, 0, 0.4);
   z-index: 9;
-}
-
-.topbar-left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.cursor-pointer {
-  cursor: pointer;
 }
 
 .sidebar {
@@ -389,6 +389,7 @@ export default {
   bottom: 0;
   z-index: 10;
   transition: transform 0.3s ease;
+  overflow-y: auto;
 }
 
 .brand {
@@ -428,8 +429,7 @@ export default {
 .nav-link {
   margin-top: 5px;
   display: flex;
-  align-items: center;     
-  justify-content: flex-start;
+  align-items: center;
   gap: 9px;
   padding: 10px 12px;
   border-radius: 9px;
@@ -450,54 +450,6 @@ export default {
   font-weight: 700;
 }
 
-.nav-icon-home {
-  font-size: 15px;
-  display: inline-flex;
-  align-items: center;
-  line-height: 1;
-  color: white;
-}
-.nav-icon-chatbot {
-  font-size: 15px;
-  display: inline-flex;
-  align-items: center;
-  line-height: 1;
-  color: rgb(0, 123, 255);
-}
-.nav-icon-passtests {
-  font-size: 15px;
-  display: inline-flex;
-  align-items: center;
-  line-height: 1;
-  color: #a07800;
-}
-.nav-icon-calculator {
-  font-size: 15px;
-  display: inline-flex;
-  align-items: center;
-  line-height: 1;
-  color: #ffc107;
-}
-.nav-icon-quiz {
-  font-size: 15px;
-  display: inline-flex;
-  align-items: center;
-  line-height: 1;
-  color: rgb(40, 167, 69);
-}
-.nav-icon-about {
-  font-size: 15px;
-  display: inline-flex;
-  align-items: center;
-  line-height: 1;
-  color: red;
-}
-.nav-icon {
-  font-size: 15px;
-  display: inline-flex;
-  align-items: center;
-  line-height: 1;
-}
 .sidebar-card {
   margin-top: auto;
   background: var(--navy-mid);
@@ -531,93 +483,132 @@ export default {
   border-radius: 7px;
   transition: opacity 0.15s;
 }
-.topbar-change-lang-en {
-  padding: 7px 14px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
-  background: rgb(0, 0, 122);
-  color: white;
-  cursor: pointer;
-  transition: all 0.15s;
-}
-.topbar-change-lang-kh {
-  padding: 7px 14px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
-  background: rgb(123, 0, 0);
-  color: white;
-  cursor: pointer;
-  transition: all 0.15s;
-}
-.topbar-change-lang-en:hover {
-  background: rgb(0, 0, 86);
-}
-.topbar-change-lang-en.active {
-  background: var(--blue-950);
-}
-.main-wrap {
-  margin-left: var(--sidebar-w);
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  width: calc(100% - var(--sidebar-w));
-}
 
-.topbar {
-  background: var(--white);
-  border-bottom: 1px solid var(--gray-100);
-  padding: 14px 28px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 5;
-}
-
-.topbar-page {
-  font-weight: 700;
-  font-size: 14px;
-  color: var(--gray-700);
-}
-
-.topbar-user {
-  background: var(--gray-100);
-  padding: 7px 14px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--gray-700);
-}
-
-.content {
-  padding: 28px;
-  flex: 1;
-}
-
-@media (max-width: 1023px) {
-  .mobile-toggle {
-    display: block; 
-  }
-
+@media (max-width: 1024px) {
+  .mobile-toggle,
   .mobile-close {
-    display: block; 
+    display: block;
   }
 
   .main-wrap {
-    margin-left: 0; 
+    margin-left: 0;
     width: 100%;
   }
 
   .sidebar {
-    transform: translateX(-100%); 
+    transform: translateX(-100%);
   }
 
   .sidebar--open {
     transform: translateX(0);
+  }
+
+  .topbar {
+    padding: 12px 20px;
+  }
+
+  .content {
+    padding: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .topbar {
+    padding: 10px 16px;
+    gap: 10px;
+  }
+
+  .topbar-countdown-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .tc-label,
+  .tc-num,
+  .tc-unit {
+    font-size: 12px;
+  }
+
+  .tc-num {
+    font-size: 15px;
+  }
+
+  .content {
+    padding: 18px;
+  }
+
+  .topbar-user span {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .topbar {
+    padding: 10px 12px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 8px;
+  }
+
+  .topbar-left {
+    gap: 8px;
+  }
+
+  .topbar-countdown-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .tc-label,
+  .tc-num,
+  .tc-unit {
+    font-size: 10px;
+  }
+
+  .tc-num {
+    font-size: 13px;
+  }
+
+  .tc-chip {
+    padding: 3px 6px;
+  }
+
+  .tc-sep {
+    font-size: 10px;
+  }
+
+  .topbar-user,
+  .topbar-change-lang-en,
+  .topbar-change-lang-kh {
+    padding: 5px 10px;
+    font-size: 10.5px;
+  }
+
+  .content {
+    padding: 14px;
+  }
+
+  .brand-name {
+    font-size: 15px;
+  }
+
+  .brand-sub {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  .tc-label {
+    display: none; 
+  }
+
+  .topbar-user {
+    padding: 5px 8px;
+  }
+
+  .topbar-user svg + span,
+  .topbar-user {
+    font-size: 10px;
   }
 }
 </style>
