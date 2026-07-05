@@ -206,6 +206,12 @@ export default {
   min-width: 0;
   overflow: hidden;
 }
+.tc-label-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 3px;
+  }
 @media (max-width: 1024px) {
   .topbar-countdown {
     flex-direction: column;
