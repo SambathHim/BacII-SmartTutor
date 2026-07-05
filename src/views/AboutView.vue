@@ -38,17 +38,17 @@ export default {
         features: [
           { 
             key: 'aiPowered', 
-            color: '#3b82f6', // Bright Blue
+            color: '#3b82f6', 
             icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>` 
           },
           { 
             key: 'pastExams', 
-            color: '#a855f7', // Purple
+            color: '#a855f7', 
             icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>` 
           },
           { 
             key: 'examFocused', 
-            color: '#ef4444', // Red
+            color: '#ef4444', 
             icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>` 
           },
           { 
@@ -193,5 +193,88 @@ export default {
   font-size: 12px;
   color: #8fa3c8;
   line-height: 1.5;
+}
+@media (max-width: 900px) {
+  .about-body {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 640px) {
+  .about {
+    padding: 24px 20px;
+    gap: 22px;
+    border-radius: 16px;
+  }
+
+  .about-eyebrow {
+    font-size: 10px;
+    padding: 3px 10px;
+  }
+
+  .about-title {
+    font-size: 22px;
+  }
+
+  .about-subtitle {
+    font-size: 12.5px;
+  }
+
+  .about-body {
+    gap: 22px;
+  }
+
+  .about-text p {
+    font-size: 12.5px;
+    line-height: 1.7;
+  }
+
+  .copyright-text {
+    font-size: 12px;
+  }
+
+  .about-cta {
+    width: 100%;
+    text-align: center;
+    padding: 12px 18px;
+  }
+
+  .feature {
+    padding: 14px 15px;
+    gap: 12px;
+  }
+
+  .feature-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .feature-title {
+    font-size: 12.5px;
+  }
+
+  .feature-desc {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 400px) {
+  .about {
+    padding: 20px 16px;
+  }
+
+  .about-title {
+    font-size: 19px;
+  }
+
+  .feature {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .feature-icon {
+    margin-top: 0;
+  }
 }
 </style>
