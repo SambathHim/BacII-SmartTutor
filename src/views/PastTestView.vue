@@ -175,6 +175,24 @@ export default {
   gap: 9px;
 }
 
+@media (max-width: 640px) {
+  .tests-list {
+    grid-template-columns: 1fr;
+  }
+
+  .test-card {
+    padding: 14px 16px;
+  }
+
+  .test-name {
+    font-size: 13px;
+  }
+
+  .test-years {
+    font-size: 10px;
+  }
+}
+
 .test-card {
   background: var(--white);
   border: 1px solid var(--gray-100);
