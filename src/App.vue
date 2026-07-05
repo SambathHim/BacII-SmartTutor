@@ -314,24 +314,6 @@ export default {
   color: var(--gray-300);
 }
 
-.topbar-user {
-  display: flex;
-  align-items: center;
-  background: var(--gray-100);
-  padding: 7px 14px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--gray-700);
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-.topbar-user-icon {
-  margin-right: 6px;
-  color: rgb(0, 0, 86);
-}
-
 .topbar-change-lang-en,
 .topbar-change-lang-kh {
   padding: 7px 14px;
