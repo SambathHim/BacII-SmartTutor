@@ -234,14 +234,22 @@ export default {
   position: sticky;
   top: 0;
   z-index: 5;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.topbar::-webkit-scrollbar {
+  display: none;
 }
 
 .topbar-left {
   display: flex;
   align-items: center;
   gap: 12px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
   min-width: 0;
 }
 
@@ -250,7 +258,8 @@ export default {
   align-items: center;
   gap: 10px;
   min-width: 0;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
 }
 
 .tc-label-row {
@@ -265,7 +274,8 @@ export default {
   display: flex;
   align-items: center;
   gap: 4px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
 }
 
 .tc-chip {
@@ -275,6 +285,7 @@ export default {
   border-radius: 6px;
   padding: 4px 8px;
   background: var(--gray-50, #f4f6fb);
+  flex-shrink: 0;
 }
 
 .tc-icon {
@@ -543,6 +554,16 @@ export default {
 }
 
 @media (max-width: 480px) {
+  .topbar {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .topbar-countdown-icon {
+    width: 15px;
+    height: 15px;
+  }
+
   .tc-label {
     font-size: 9px;
     max-width: 70px;
@@ -552,6 +573,9 @@ export default {
   }
   .tc-unit {
     font-size: 8px;
+  }
+  .tc-sep {
+    font-size: 9px;
   }
   .tc-chip {
     padding: 2px 5px;
