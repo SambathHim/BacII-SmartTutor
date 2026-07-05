@@ -543,57 +543,28 @@ export default {
 }
 
 @media (max-width: 480px) {
-  .topbar {
-    padding: 10px 12px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    row-gap: 8px;
-  }
-
-  .topbar-left {
-    gap: 8px;
-  }
-
-  .topbar-countdown-icon {
-    width: 16px;
-    height: 16px;
-  }
-
-  .tc-label,
-  .tc-num,
-  .tc-unit {
-    font-size: 10px;
+  .tc-label {
+    font-size: 9px;
+    max-width: 70px;
   }
 
   .tc-num {
-    font-size: 13px;
+    font-size: 11px;
+  }
+
+  .tc-unit {
+    font-size: 8px;
   }
 
   .tc-chip {
-    padding: 3px 6px;
-  }
-
-  .tc-sep {
-    font-size: 10px;
+    padding: 2px 5px;
   }
 
   .topbar-user,
   .topbar-change-lang-en,
   .topbar-change-lang-kh {
-    padding: 5px 10px;
-    font-size: 10.5px;
-  }
-
-  .content {
-    padding: 14px;
-  }
-
-  .brand-name {
-    font-size: 15px;
-  }
-
-  .brand-sub {
-    font-size: 10px;
+    padding: 4px 8px;
+    font-size: 9px;
   }
 }
 
