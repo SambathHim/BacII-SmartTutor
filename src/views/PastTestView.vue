@@ -176,12 +176,39 @@ export default {
 }
 
 @media (max-width: 640px) {
+  .tests-page {
+    padding: 0 12px;
+    gap: 14px;
+  }
+
+  .tabs {
+    gap: 6px;
+  }
+
+  .tab {
+    padding: 8px 14px;
+    font-size: 12px;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .tab-badge {
+    font-size: 9px;
+  }
+
   .tests-list {
     grid-template-columns: 1fr;
+    gap: 10px;
   }
 
   .test-card {
     padding: 14px 16px;
+    gap: 10px;
+  }
+
+  .test-icon svg {
+    width: 20px;
+    height: 20px;
   }
 
   .test-name {
@@ -190,6 +217,48 @@ export default {
 
   .test-years {
     font-size: 10px;
+  }
+
+  .file-row {
+    padding: 0 16px 14px;
+    padding-top: 12px;
+  }
+
+  .file-btn {
+    font-size: 12px;
+    padding: 9px 14px;
+  }
+
+  .pdf-modal {
+    padding: 12px;
+  }
+
+  .pdf-modal-content {
+    height: 85vh;
+    border-radius: 8px;
+  }
+
+  .pdf-modal-header {
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 400px) {
+  .tabs {
+    flex-direction: column;
+  }
+
+  .tab {
+    width: 100%;
+  }
+
+  .test-card {
+    padding: 12px 14px;
+  }
+
+  .test-name {
+    font-size: 12.5px;
   }
 }
 
