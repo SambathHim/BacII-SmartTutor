@@ -459,6 +459,12 @@ export default {
   font-weight: 600;
   cursor: pointer;
   transition: background 0.15s;
+  display: flex;
+}
+@media (max-width: 480px) {
+  .delete-btn {
+    padding: 4px 10px;
+  }
 }
 
 .delete-btn:hover {
