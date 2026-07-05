@@ -214,6 +214,20 @@ export default {
     flex-wrap: wrap;
   }
 }
+@media (max-width: 768px) {
+  .topbar-countdown-icon {
+    width: 18px;
+    height: 18px;
+  }
+  .topbar-countdown {
+    gap: 6px;
+  }
+  .tc-label,
+  .tc-num,
+  .tc-unit {
+    font-size: 13px;
+  }
+}
 @media (max-width: 480px) {
   .topbar-countdown-icon {
     width: 18px;
