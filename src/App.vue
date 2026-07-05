@@ -226,6 +226,7 @@ export default {
 
   .tc-chips {
     flex-wrap: wrap;
+    font-size: 12px;
   }
 }
 
