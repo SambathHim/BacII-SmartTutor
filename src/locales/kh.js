@@ -13,7 +13,7 @@ export default {
     browsePastTests: 'មើលវិញ្ញាសាចាស់ៗ',
     appTitle: 'BacII SmartTutor',
     subjectsCovered: 'មុខវិជ្ជាដែលគ្របដណ្តប់',
-    countdown: 'ប្រឡងបាក់ឌុបនៅក្នុង',
+    countdown: 'ប្រឡងបាក់ឌុប',
     days: 'ថ្ងៃ',
     hours: 'ម៉ោង',
     minutes: 'នាទី',
