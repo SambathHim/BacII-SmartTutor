@@ -204,6 +204,20 @@ export default {
   min-width: 0;
   overflow: hidden;
 }
+@media (max-width: 480px) {
+  .topbar-countdown {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tc-label {
+    margin-bottom: 4px;
+  }
+
+  .tc-chips {
+    flex-wrap: wrap;
+  }
+}
 
 .tc-icon {
   font-size: 16px;
