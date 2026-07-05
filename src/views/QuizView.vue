@@ -953,55 +953,44 @@ export default {
 }
 
 @media (max-width: 480px) {
-  .results-left {
-    padding: 16px;
-  }
-
-  .score-badge {
-    width: 60px;
-    height: 60px;
-  }
-
-  .score-num {
-    font-size: 22px;
-    margin-top: 8px;
-  }
-
-  .pie-svg {
-    width: 90px;
-    height: 90px;
-  }
-
-  .review-title {
-    font-size: 14px;
-  }
-
   .review-item {
-    padding: 10px 12px;
+    padding: 12px 14px;
   }
 
   .review-q-header {
-    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    margin-bottom: 8px;
+  }
+
+  .review-num {
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .review-verdict {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
     gap: 4px;
   }
 
-  .review-num,
-  .review-verdict {
-    font-size: 10px;
-  }
-
   .review-q-text {
-    font-size: 12px;
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 8px;
   }
 
   .review-yours {
-    font-size: 11px;
+    font-size: 12px;
+    line-height: 1.5;
+    display: block;
   }
 
-  .btn-retry,
-  .btn-home {
-    font-size: 13px;
-    padding: 11px 20px;
+  .review-yours strong {
+    display: inline;
   }
 }
 </style>
