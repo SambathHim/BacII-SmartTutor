@@ -224,23 +224,33 @@ export default {
 }
 
 .topbar {
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; 
-}
-.topbar::-webkit-scrollbar {
-  display: none;
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-100);
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  flex-wrap: wrap;
 }
 
 .topbar-left {
-  flex-wrap: nowrap;
-  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  min-width: 0;
 }
 
 .topbar-countdown {
-  flex-wrap: nowrap;
-  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  flex-wrap: wrap;
 }
 
 .tc-label-row {
@@ -252,12 +262,19 @@ export default {
 }
 
 .tc-chips {
-  flex-wrap: nowrap;
-  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
 }
 
 .tc-chip {
-  flex-shrink: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  border-radius: 6px;
+  padding: 4px 8px;
+  background: var(--gray-50, #f4f6fb);
 }
 
 .tc-icon {
@@ -526,32 +543,16 @@ export default {
 }
 
 @media (max-width: 480px) {
-  .topbar {
-    padding: 10px 12px;
-    gap: 8px;
-  }
-
-  .topbar-countdown-icon {
-    width: 15px;
-    height: 15px;
-  }
-
   .tc-label {
     font-size: 9px;
+    max-width: 70px;
   }
-
   .tc-num {
     font-size: 11px;
   }
-
   .tc-unit {
     font-size: 8px;
   }
-
-  .tc-sep {
-    font-size: 9px;
-  }
-
   .tc-chip {
     padding: 2px 5px;
   }
@@ -559,8 +560,8 @@ export default {
   .topbar-user,
   .topbar-change-lang-en,
   .topbar-change-lang-kh {
-    padding: 5px 9px;
-    font-size: 9.5px;
+    padding: 4px 8px;
+    font-size: 9px;
   }
 }
 
