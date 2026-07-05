@@ -224,33 +224,20 @@ export default {
 }
 
 .topbar {
-  background: var(--white);
-  border-bottom: 1px solid var(--gray-100);
-  padding: 14px 28px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  position: sticky;
-  top: 0;
-  z-index: 5;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto; 
+  -webkit-overflow-scrolling: touch;
 }
 
 .topbar-left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  flex-shrink: 1;
   min-width: 0;
 }
 
 .topbar-countdown {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  flex-wrap: nowrap;
   min-width: 0;
-  flex-wrap: wrap;
 }
 
 .tc-label-row {
@@ -283,10 +270,10 @@ export default {
 }
 
 .tc-label {
-  font-size: 12.5px;
-  font-weight: 700;
-  color: var(--gray-700);
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 90px;
 }
 
 .tc-num {
@@ -547,15 +534,12 @@ export default {
     font-size: 9px;
     max-width: 70px;
   }
-
   .tc-num {
     font-size: 11px;
   }
-
   .tc-unit {
     font-size: 8px;
   }
-
   .tc-chip {
     padding: 2px 5px;
   }
