@@ -204,6 +204,16 @@ export default {
   min-width: 0;
   overflow: hidden;
 }
+@media (max-width: 1024px) {
+  .topbar-countdown {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .tc-chips {
+    flex-wrap: wrap;
+  }
+}
 @media (max-width: 480px) {
   .topbar-countdown {
     flex-direction: column;
