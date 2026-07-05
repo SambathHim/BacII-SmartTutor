@@ -465,6 +465,10 @@ export default {
   .delete-btn {
     padding: 4px 10px;
   }
+  .find-total-btn {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
 }
 
 .delete-btn:hover {
