@@ -15,7 +15,7 @@
         <p class="copyright-text">
           <strong>{{ $t('about.copyrightNotice') }}</strong>
         </p>
-        <router-link to="/chat" class="about-cta">{{ $t('about.cta') }} →</router-link>
+        <router-link to="/bot" class="about-cta">{{ $t('about.cta') }} →</router-link>
       </div>
 
       <div class="about-features">
