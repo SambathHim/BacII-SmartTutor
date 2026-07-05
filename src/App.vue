@@ -214,9 +214,10 @@ export default {
   }
 @media (max-width: 1024px) {
   .topbar-countdown {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
   }
   .tc-chips {
     flex-wrap: wrap;
@@ -241,29 +242,20 @@ export default {
     width: 18px;
     height: 18px;
   }
-
   .topbar-countdown {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-  }
-
-  .tc-label-row {
-    display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     gap: 6px;
   }
-
   .tc-label,
   .tc-num,
   .tc-unit {
-    font-size: 8px;
+    font-size: 11px;
   }
-
   .tc-chips {
     flex-wrap: wrap;
+    gap: 4px;
   }
 }
 
